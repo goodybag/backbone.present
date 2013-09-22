@@ -10,6 +10,8 @@ When you ```require('backbone.present')```, you'll be returned an object with th
 
 ___Note:___ _I wanted to leave creating a new namespace on Backbone up to the library consumer, but because of this decision, you need to be careful with object mutability. Just use ```_.clone``` to be safe._
 
+___Also Note:___ _I use requirejs and this module requires that at the moment. I'll get around to building a version that does not.._
+
 ## Regions
 
 Declaratively assign views to elements:
@@ -60,7 +62,7 @@ Easily show, hide, views.
 var Present = require('backbone.present');
 
 // Make all views have swappers
-Backbone.View = Backbone.View.extend( Present.swapper );
+Backbone.View = Backbone.View.extend( _.clone( Present.swapper ) );
 
 // Create application content view swapper
 var AppContent = Backbone.View.extend({
