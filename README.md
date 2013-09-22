@@ -6,16 +6,22 @@ When you ```require('backbone.present')```, you'll be returned an object with th
 
 * ```regions``` - Mixin for view region support
 * ```swapper``` - Mixin for view swapping support
+* ```transitions``` - Transitions object that swapper uses
+
+___Note:__ I wanted to leave creating a new namespace on Backbone up to the library consumer, but because of this decision, you need to be careful with object mutability. Just use ```_.clone``` to be safe._
 
 ## Regions
 
 Declaratively assign views to elements:
 
 ```javascript
+var Backbone = require('backbone');
+var _ = require('underscore');
 var Present = require('backbone.present');
 
 // Make all views have regions
-Backbone.View = Backbone.View.extend( Present.regions );
+// Be sure to clone the object since Present just exposes an object
+Backbone.View = Backbone.View.extend( _.clone( Present.regions ) );
 
 // Create application view/layout
 var MyApp = Backbone.View.extend({
@@ -80,6 +86,32 @@ appContent.showView('page-1', function( view ){
 // Hides page-1, shows page-2 using default transitions
 appContent.showView('page-2');
 ```
+
+__Methods for Swapper:__
+
+#### get( child )
+
+Return the child view. Same thing as ```swapperView.children[ child ]```.
+
+#### provideChildren( children )
+
+Sets the ```this.children``` object. May be an object of View constructors or instances of View constructors.
+
+#### renderCurrent()
+
+Renders the currently shown view.
+
+#### changeView( child, [options] )
+
+Returns the child view. Swaps out the current view with the child specified.
+
+_options:_
+
+* transition (Backbone.Present ships with none and fade)
+* onViewAAnimationStart - function( previousView ) called before transition animation starts
+* onViewAAnimationEnd - function( previousView ) called after transition animation completes
+* onViewBAnimationStart - function( currentView ) called before transition animation starts
+* onViewBAnimationEnd - function( currentView ) called after transition animation completes
 
 ### Why not use Backbone.Chaplin|Marionette|LayoutManager
 
