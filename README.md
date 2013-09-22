@@ -8,7 +8,7 @@ When you ```require('backbone.present')```, you'll be returned an object with th
 * ```swapper``` - Mixin for view swapping support
 * ```transitions``` - Transitions object that swapper uses
 
-___Note:__ I wanted to leave creating a new namespace on Backbone up to the library consumer, but because of this decision, you need to be careful with object mutability. Just use ```_.clone``` to be safe._
+___Note:___ _I wanted to leave creating a new namespace on Backbone up to the library consumer, but because of this decision, you need to be careful with object mutability. Just use ```_.clone``` to be safe._
 
 ## Regions
 
@@ -66,9 +66,9 @@ Backbone.View = Backbone.View.extend( Present.swapper );
 var AppContent = Backbone.View.extend({
   // Map viewIdentifiers: viewInstances or constructors
   children: {
-    'page-1': new Views.Page1
-  , 'page-2': new Views.Page2
-  , 'page-3': new Views.Page3
+    'page-1': Views.Page1
+  , 'page-2': Views.Page2
+  , 'page-3': new Views.Page3()
   }
 });
 
@@ -84,7 +84,9 @@ appContent.showView('page-1', function( view ){
 });
 
 // Hides page-1, shows page-2 using default transitions
-appContent.showView('page-2');
+// When instantiating page-2, pass in options
+// If page-2 is already instantiated, pass to onShow method
+appContent.showView('page-2', { model: myModel });
 ```
 
 __Methods for Swapper:__
@@ -104,6 +106,14 @@ Renders the currently shown view.
 #### changeView( child, [options] )
 
 Returns the child view. Swaps out the current view with the child specified.
+
+#### onShow( options )
+
+Optionally, you can implement your own onShow method that will be called with the options passed in from showView after the view has been shown.
+
+#### onHide()
+
+Optionally, you can implement your own onHide method that will be called just before the view has been hidden.
 
 _options:_
 
