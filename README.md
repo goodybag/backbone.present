@@ -62,7 +62,7 @@ Easily show, hide, views.
 var Present = require('backbone.present');
 
 // Make all views have swappers
-Backbone.View = Backbone.View.extend( Present.swapper );
+Backbone.View = Backbone.View.extend( _.clone( Present.swapper ) );
 
 // Create application content view swapper
 var AppContent = Backbone.View.extend({
