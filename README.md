@@ -1,4 +1,4 @@
-# Backbone.Present - Regions, Swapping, and Transitions
+# Regions, Swapping, and Transitions
 
 Some simple view helpers that make common backbone patterns nicer. The module goes against convention and does not provide any new classes on the Backbone namespace. Instead, this module exposes namespaces that you can mixin to your view at your own discretion.
 
