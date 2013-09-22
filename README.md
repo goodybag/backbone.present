@@ -80,3 +80,7 @@ appContent.showView('page-1', function( view ){
 // Hides page-1, shows page-2 using default transitions
 appContent.showView('page-2');
 ```
+
+### Why not use Backbone.Chaplin|Marionette|LayoutManager
+
+Because I'm lazy I don't know jeez get off my back.

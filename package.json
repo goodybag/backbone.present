@@ -1,0 +1,33 @@
+{
+  "name": "backbone.present",
+  "version": "0.1.0",
+  "description": "Backbone view mixins for regions, view swapping, and transitions",
+  "main": "backbone.present.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/goodybag/backbone.present.git"
+  },
+  "keywords": [
+    "backbone",
+    "views",
+    "swapping",
+    "regions",
+    "transitions"
+  ],
+  "author": "John Fawcett",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/goodybag/backbone.present/issues"
+  },
+  "dependencies": {
+    
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.6.4",
+    "grunt-contrib-watch": "~0.5.3"
+  }
+}
