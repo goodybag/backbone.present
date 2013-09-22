@@ -1,6 +1,6 @@
 {
   "name": "backbone.present",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Backbone view mixins for regions, view swapping, and transitions",
   "main": "backbone.present.js",
   "scripts": {
@@ -22,9 +22,7 @@
   "bugs": {
     "url": "https://github.com/goodybag/backbone.present/issues"
   },
-  "dependencies": {
-    
-  },
+  "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-jshint": "~0.6.4",
