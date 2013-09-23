@@ -50,10 +50,6 @@ __Methods from regions:__
 
 Applies the regions on the view.
 
-#### delegateEvents()
-
-Override of delegateEvents to automatically call applyRegions.
-
 ## Swapper
 
 Easily show, hide, views.
