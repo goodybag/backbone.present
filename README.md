@@ -76,7 +76,7 @@ var appContent = new AppContent();
 // after the view has been shown
 // If you do not pass a callback, swapper automatically calls
 // view.render() for you
-appContent.showView('page-1', function( view ){
+appContent.changeView('page-1', function( view ){
   view.model = someOtherModel;
   view.render();
 });
@@ -84,7 +84,7 @@ appContent.showView('page-1', function( view ){
 // Hides page-1, shows page-2 using default transitions
 // When instantiating page-2, pass in options
 // If page-2 is already instantiated, pass to onShow method
-appContent.showView('page-2', { model: myModel });
+appContent.changeView('page-2', { model: myModel });
 ```
 
 __Methods for Swapper:__
@@ -120,6 +120,19 @@ _options:_
 * onViewAAnimationEnd - function( previousView ) called after transition animation completes
 * onViewBAnimationStart - function( currentView ) called before transition animation starts
 * onViewBAnimationEnd - function( currentView ) called after transition animation completes
+
+## Transitions
+
+Present currently ships with two transitions: none and fade. Here's how to use them:
+
+```javascript
+appContent.changeView('page-2', {
+  // Pass along transition options along with the onShow/initialize options
+  // Transition options will be removed before they're passed to the view
+  transition: 'fade'
+, model: myModel
+});
+```
 
 ### Why not use Backbone.Chaplin|Marionette|LayoutManager
 
