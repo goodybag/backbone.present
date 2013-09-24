@@ -1,6 +1,6 @@
 {
   "name": "backbone.present",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Backbone view mixins for regions, view swapping, and transitions",
   "main": "backbone.present.js",
   "scripts": {
