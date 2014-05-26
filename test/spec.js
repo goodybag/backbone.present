@@ -27,9 +27,7 @@ define(function(require){
 
   describe('Backbone.Present.Regions', function(){
     it ('should attach views to region selectors', function(){
-      var RegionView = Backbone.View.extend( _.clone( Present.regions ) );
-
-      RegionView = RegionView.extend({
+      RegionView = Backbone.View.extend({
         template: _.template('<div class="my-region"></div>')
 
       , regions: {
@@ -47,6 +45,8 @@ define(function(require){
           return this;
         }
       });
+      
+      _.defaults(RegionView.prototype, Present.regions);
 
       var regionView = new RegionView().render();
 
@@ -57,9 +57,7 @@ define(function(require){
     });
 
     it ('should append views to region selectors', function(){
-      var RegionView = Backbone.View.extend( _.clone( Present.regions ) );
-
-      RegionView = RegionView.extend({
+      RegionView = Backbone.View.extend({
         template: _.template('<div class="my-region"></div>')
 
       , regions: {
@@ -77,6 +75,8 @@ define(function(require){
           return this;
         }
       });
+      
+      _.defaults(RegionView.prototype, Present.regions);
 
       var regionView = new RegionView().render();
 
@@ -89,9 +89,7 @@ define(function(require){
 
   describe('Backbone.Present.Swapper', function(){
     it ('should swap views', function(){
-      var SwapperView = Backbone.View.extend( _.clone( Present.swapper ) );
-
-      SwapperView = SwapperView.extend({
+      SwapperView = Backbone.View.extend({
         children: {
           'view-1': Backbone.View.extend({ id: 'view-1' })
         , 'view-2': Backbone.View.extend({ id: 'view-2' })
@@ -99,6 +97,8 @@ define(function(require){
         , 'view-4': Backbone.View.extend({ id: 'view-4' })
         }
       });
+      
+      _.defaults(SwapperView.prototype, Present.swapper);
 
       var swapperView = new SwapperView();
 
@@ -132,14 +132,14 @@ define(function(require){
     });
 
     it ('should swap views with one instance and one class', function(){
-      var SwapperView = Backbone.View.extend( _.clone( Present.swapper ) );
-
-      SwapperView = SwapperView.extend({
+      SwapperView = Backbone.View.extend({
         children: {
           'view-a': new (Backbone.View.extend({ id: 'view-a' }))()
         , 'view-b': Backbone.View.extend({ id: 'view-b' })
         }
       });
+      
+      _.defaults(SwapperView.prototype, Present.swapper);
 
       var swapperView = new SwapperView();
 
